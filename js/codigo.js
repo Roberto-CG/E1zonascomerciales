@@ -4,13 +4,13 @@ Descripción: Práctica del MF0952_2 */
 
 // Your web app's Firebase configuration
 var config = {
-  apiKey: "AIzaSyBQbrSsLoEbf0_Q-X0x3t5M9ayxS2JAPZY",
-  authDomain: "usuarios-b24e9.firebaseapp.com",
-  databaseURL: "https://usuarios-b24e9.firebaseio.com",
-  projectId: "usuarios-b24e9",
-  storageBucket: "usuarios-b24e9.appspot.com",
-  messagingSenderId: "284628426851",
-  appId: "1:284628426851:web:8ef0bc74fbfa6a3e"
+  apiKey: "AIzaSyDfamQ7LPLYhxA0Fn-SoD9L0YiASNLc8A4",
+  authDomain: "areas-comerciales-25d87.firebaseapp.com",
+  databaseURL: "https://areas-comerciales-25d87.firebaseio.com",
+  projectId: "areas-comerciales-25d87",
+  storageBucket: "areas-comerciales-25d87.appspot.com",
+  messagingSenderId: "950999164161",
+  appId: "1:950999164161:web:dcd937589b04761b"
 };
 // Initialize Firebase
 firebase.initializeApp(config);
