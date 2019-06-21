@@ -1,16 +1,16 @@
-/* Autor: Ibai Trueba Campo
-Fecha: 14/06/2019
-Descripción: Ejercicio práctico del MF0952_2 */
+/* Autor: Roberto Corcuera García
+Fecha: 18/06/2019
+Descripción: Práctica del MF0952_2 */
 
 // Your web app's Firebase configuration
 var config = {
-  apiKey: "AIzaSyDgxeRRE_uqBEQ5NqDCaMFBcAXzFpGpro0",
-  authDomain: "territorios-721bd.firebaseapp.com",
-  databaseURL: "https://territorios-721bd.firebaseio.com",
-  projectId: "territorios-721bd",
-  storageBucket: "territorios-721bd.appspot.com",
-  messagingSenderId: "705631175201",
-  appId: "1:705631175201:web:d7990bb1990fb8e5"
+  apiKey: "AIzaSyBQbrSsLoEbf0_Q-X0x3t5M9ayxS2JAPZY",
+  authDomain: "usuarios-b24e9.firebaseapp.com",
+  databaseURL: "https://usuarios-b24e9.firebaseio.com",
+  projectId: "usuarios-b24e9",
+  storageBucket: "usuarios-b24e9.appspot.com",
+  messagingSenderId: "284628426851",
+  appId: "1:284628426851:web:8ef0bc74fbfa6a3e"
 };
 // Initialize Firebase
 firebase.initializeApp(config);
@@ -105,40 +105,34 @@ function contenidosUsuarioRegistrado(usuario) {
         <p>Todos los datos son obligatorios</p>
 
       <form action="#" class="form-inline">
-        <div class="col-sm-3"></div>
-          <label for="tipo" class="col-sm-2 col-form-label">Tipo de territorio: </label>
-          <input type="text" id="tipo" class="form-control my-3 col-sm-1" maxlength="2" pattern="10 || [1-9]">
-          <label for="territorio" class="col-sm-2 col-form-label">Número de territorio: </label>
-          <input type="text" id="territorio" class="form-control my-3 col-sm-1" min="1" max="300" maxlength="3">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3"></div>
+
+          <label for="tipo" class="col-sm-2 col-form-label">Tipo de área comercial: </label>
+          <input type="text" id="tipo" class="form-control my-3 col-sm-1">
+          <label for="territorio" class="col-sm-2 col-form-label">Número de área comercial: </label>
+          <input type="text" id="territorio" class="form-control my-3 col-sm-1">
+
           <label for="inicio" class="col-sm-2 col-form-label">Fecha de Inicio: </label>
-          <input type="date" id="inicio" class="form-control my-3 col-sm-4" maxlenght="4">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-3"></div>
+          <input type="date" id="inicio" class="form-control my-3 col-sm-4">
+
           <label for="final" class="col-sm-2 col-form-label">Fecha de Fin: </label>
-          <input type="date" id="final" class="form-control my-3 col-sm-4" maxlenght="4">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3"></div>
+          <input type="date" id="final" class="form-control my-3 col-sm-4">
+
           <label for="cuando" class="col-sm-2 col-form-label">Cuándo se trabaja: </label>
-          <input type="text" id="cuando" class="form-control my-3 col-sm-4"
-          pattern="[\dA-Za-zÑñÇçÁáÉéÍíÓóÚú\s-+=()¿?!¡:.,;&%@]{1,50}" maxlength="50">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-3"></div>
+          <input type="text" id="cuando" class="form-control my-3 col-sm-4">
+
           <label for="quien" class="col-sm-2 col-form-label">Quién lo trabaja: </label>
-          <input type="number" id="quien" class="form-control my-3 col-sm-1" max="120" min="1" maxlength="3">
-        <div class="col-sm-2"></div>
-          <button class="btn btn-dark my-3 form-control" id="guardar">Guardar</button>
+          <input type="number" id="quien" class="form-control my-3 col-sm-1">
+
+          <button class="btn btn-dark my-3 ml-2 form-control" id="guardar">Guardar</button>
           <div id="act"></div>
-        <div class="col-sm-3"></div>
       </form>
 
       <table class="table">
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Tipo de territorio</th>
-            <th scope="col">Número de territorio</th>
+            <th scope="col">Tipo de área comercial</th>
+            <th scope="col">Número de área comercial</th>
             <th scope="col">Fecha de inicio</th>
             <th scope="col">Fecha de fin</th>
             <th scope="col">Cuándo se trabaja</th>
@@ -256,14 +250,13 @@ function cargarTabla() {
           <td>${doc.data().final}</td>
           <td>${doc.data().cuando}</td>
           <td>${doc.data().quien}</td>
-          <td><i id="pen" class="fas fa-pencil-alt" onclick="editarDatos('${doc.id}', '${doc.data().tipo}', '${doc.data().territorio}', '${doc.data().inicio}', '${doc.data().final}', '${doc.data().cuando}', '${doc.data().quien}');"></i></td>
-          <td><i id="cut" class="fas fa-trash-alt" onclick="borrarDatos('${doc.id}', '${doc.data().tipo}', '${doc.data().territorio}');"></i></td>
+          <td><i id="pen" class="fas fa-edit" onclick="editarDatos('${doc.id}', '${doc.data().tipo}', '${doc.data().territorio}', '${doc.data().inicio}', '${doc.data().final}', '${doc.data().cuando}', '${doc.data().quien}');"></i></td>
+          <td><i id="cut" class="fas fa-eraser" onclick="borrarDatos('${doc.id}', '${doc.data().tipo}', '${doc.data().territorio}');"></i></td>
         </tr>
       `;
     });
   });
 }
-
 // Borrar datos de documentos
 function borrarDatos(parId, parTipo, parTerritorio) {
   var re = confirm("¿Está seguro que quiere borrar el campo " + parId + "?");
@@ -288,7 +281,7 @@ function editarDatos(parId, parTipo, parTerritorio, parInicio, parFinal, parCuan
 
   $("#guardar").css("display", "none");
   $(".linea").attr("disabled", true);
-  $("#act").append("<button class='btn btn-success my-3' id='actualizar'>Editar</button>");
+  $("#act").append("<button class='btn btn-success my-3  ml-2' id='actualizar'>Editar</button>");
   $("#actualizar").on("click", function () {
     var userRef = db.collection("usuarios").doc(parId);
     tipo = document.getElementById("tipo").value;
